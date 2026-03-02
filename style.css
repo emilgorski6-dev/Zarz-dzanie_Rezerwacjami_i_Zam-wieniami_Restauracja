@@ -1,0 +1,327 @@
+/* Import nowoczesnej czcionki */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+:root {
+  /* Nowa, głębsza paleta kolorów */
+  --bg-color: #f8fafc;
+  --sidebar-color: #0f172a;
+  --sidebar-hover: #1e293b;
+  --primary: #6366f1; /* Indigo */
+  --primary-hover: #4f46e5;
+
+  /* Kolory statusów zgodne z ERD */
+  --success: #10b981; /* Wolny */
+  --danger: #ef4444; /* Zajęty */
+  --warning: #f59e0b; /* Rezerwacja */
+  --info: #8b5cf6; /* Do sprzątania */
+
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --white: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar - Elegancki, ciemny styl */
+.sidebar {
+  width: 260px;
+  background-color: var(--sidebar-color);
+  color: var(--white);
+  padding: 24px 16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 32px;
+  padding-left: 12px;
+  color: var(--primary);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 4px;
+}
+
+.sidebar li a {
+  color: #94a3b8;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.sidebar li a:hover {
+  background-color: var(--sidebar-hover);
+  color: var(--white);
+}
+
+.sidebar li a.active {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/* Main Content */
+.content {
+  flex: 1;
+  padding: 40px;
+  max-width: 1400px;
+}
+
+header {
+  margin-bottom: 32px;
+}
+
+header h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0 0 8px 0;
+}
+
+.user-info {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+/* Statusy i Legenda */
+.legend {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.status.wolny {
+  background: #dcfce7;
+  color: #166534;
+}
+.status.zajety {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.status.zarezerwowany {
+  background: #fef3c7;
+  color: #92400e;
+}
+.status.do-sprzatania {
+  background: #f3e8ff;
+  color: #6b21a8;
+}
+
+/* Siatka Stolików - Modern Cards */
+.tables-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.table-card {
+  background: var(--white);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.table-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+}
+
+.table-card.wolny::before {
+  background: var(--success);
+}
+.table-card.zajety::before {
+  background: var(--danger);
+}
+.table-card.zarezerwowany::before {
+  background: var(--warning);
+}
+.table-card.do-sprzatania::before {
+  background: var(--info);
+}
+
+.table-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.125rem;
+}
+
+.table-card p {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 20px;
+}
+
+/* Przyciski */
+button {
+  font-family: inherit;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  font-size: 0.875rem;
+}
+
+.btn-primary,
+button:not(.secondary) {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover,
+button:not(.secondary):hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+button.secondary {
+  background-color: #f1f5f9;
+  color: var(--text-main);
+}
+
+button.secondary:hover {
+  background-color: #e2e8f0;
+}
+
+/* Tabele Danych (Raporty/Menu) */
+.data-table {
+  width: 100%;
+  border-spacing: 0;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+.data-table th {
+  background: #f8fafc;
+  padding: 16px;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.data-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.875rem;
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tr:hover td {
+  background-color: #f1f5f9;
+}
+
+/* Statystyki (Raporty) */
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: var(--white);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+.stat-card h3 {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin: 0 0 12px 0;
+}
+
+.stat-card p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--primary);
+}
+
+/* Panel Zamówienia (Formularze) */
+.order-panel {
+  background: var(--white);
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  max-width: 500px;
+  margin-top: 40px;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--primary);
+  border-color: transparent;
+}
