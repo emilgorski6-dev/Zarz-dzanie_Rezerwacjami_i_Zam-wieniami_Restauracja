@@ -8,14 +8,15 @@
 <body>
     <div class="container">
         <nav class="sidebar">
-            <h2>RestoManager</h2>
-            <ul>
-                <li><a href="mapa.php" class="active">Mapa Sali</a></li>
-                <li><a href="rezerwacje.php">Rezerwacje</a></li>
-                <li><a href="menu.php">Menu / Potrawy</a></li>
-                <li><a href="raporty.php">Raporty</a></li>
-            </ul>
-        </nav>
+    <h2>RestoManager</h2>
+    <ul>
+        <li><a href="index.php">Strona Główna</a></li>
+        <li><a href="mapa.php" class="active">Mapa Sali</a></li>
+        <li><a href="rezerwacje.php">Rezerwacje</a></li>
+        <li><a href="menu.php">Menu / Potrawy</a></li>
+        <li><a href="raporty.php">Raporty</a></li>
+    </ul>
+</nav>
         <main class="content">
             <header><h1>Mapa Stolików</h1></header>
             <div class="legend">

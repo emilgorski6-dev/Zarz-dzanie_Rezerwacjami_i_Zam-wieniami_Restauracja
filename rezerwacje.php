@@ -10,8 +10,9 @@
         <nav class="sidebar">
             <h2>RestoManager</h2>
             <ul>
+                <li><a href="index.php" class="active">Strona Główna</a></li>
                 <li><a href="mapa.php">Mapa Sali</a></li>
-                <li><a href="rezerwacje.php" class="active">Rezerwacje</a></li>
+                <li><a href="rezerwacje.php">Rezerwacje</a></li>
                 <li><a href="menu.php">Menu / Potrawy</a></li>
                 <li><a href="raporty.php">Raporty</a></li>
             </ul>
